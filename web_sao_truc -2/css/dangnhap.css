@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url("../image/dangnhap\ \(3\).jpg");
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+
+  h3{
+    position: relative;
+    left: 90px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    /* padding-top: 30px; */
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
+  #login-error-message{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #04AA6D;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    font-size: 17px;
+  }
+
+  #login-error-message.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+
+  @-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;} 
+    to {top: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {top: 30px; opacity: 1;} 
+    to {top: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {top: 30px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+  }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADMIN</title>
+</head>
+
+<body>
+  <!-- <div>
+        <label for="">thêm ảnh sản phẩm</label><br>
+        <input type="file" onchange="imgProduct(this)"> <br>
+        <label for="">id</label><br>
+        <input id="soluong" type="number"><br>
+
+        <img id="productImage" src="" alt="Product image"><br>
+        <label for="">tên sản phẩm</label> <br>
+        <input id="name" type="text"> <br> <br>
+        <label for="price">giá tiền</label> <br>
+        <input id="price" type="text"> <br> <br>
+        <button id="update" onclick="addProduct()">add</button>
+    </div>
+    <table id="table" border="1px"></table>
+
+    <script>
+    
+        let luuLocal = JSON.parse(localStorage.getItem("admin"));
+        function addProduct() {
+            let name = document.getElementById("name").value;
+            let price = document.getElementById("price").value;
+            let soluong = document.getElementById("soluong").value;
+            let image = document.getElementById("image").src;
+            let productImage = document.getElementById("productImage");
+            productImage.src = image;
+            let valueList = {
+                stt: 1,
+                name: name,
+                price: price,
+                soluong: soluong,
+                image: image,
+            }
+            let luuLocal = JSON.parse(localStorage.getItem("admin"));
+            if (luuLocal == null) {
+                luuLocal = [];
+                localStorage.removeItem("admin");
+            }
+            luuLocal.push(valueList);
+            localStorage.setItem("admin", JSON.stringify(luuLocal));
+            document.getElementById("name").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("soluong").value = "";
+            document.getElementById("image").src = "";
+            renderList();
+        }
+
+        function renderList() {
+            let luuLocal = JSON.parse(localStorage.getItem("admin"));
+            if (luuLocal == null) {
+                return;
+            }
+            let result =
+                `
+                <tr>
+                    <td>stt</td>
+                    <td>mô hình sản phẩm</td>
+                    <td>tên sản phẩm</td>
+                    <td>giá tiền</td>
+                    <td>số lượng</td>
+                    <td>sua</td>
+                    <td>xoa</td>
+                </tr>
+            `
+            for (let i = 0; i < luuLocal.length; i++) {
+                result +=
+                    `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${luuLocal[i].image}</td>
+                    <td>${luuLocal[i].name}</td>
+                    <td>${luuLocal[i].price}</td>
+                    <td>${luuLocal[i].soluong}</td>
+                    <td>
+                        <button onclick="suabutton(${i})">sua</button>
+                    </td>
+                    <td>
+                        <button onclick="xoaButton(${i})">xoa</button>
+                    </td>
+                </tr>
+                `
+            }
+            document.getElementById("table").innerHTML = result;
+        }
+        renderList();
+        function suabutton(sua) {
+            let luuLocal = JSON.parse(localStorage.getItem("admin"));
+            document.getElementById("name").value = luuLocal[sua].name;
+            document.getElementById("price").value = luuLocal[sua].price;
+            document.getElementById("update").onclick = function () {
+                let valueList = {
+                    stt: luuLocal[sua].stt,
+                    product: document.getElementById("name").value,
+                    price: document.getElementById("price").value,
+                }
+                luuLocal.splice(sua, 1, valueList);
+                localStorage.setItem("admin", JSON.stringify(luuLocal));
+                document.getElementById("name").value = "";
+                document.getElementById("price").value = "";
+                renderList();
+            }
+        }
+        function xoaButton(xoa) {
+            let luuLocal = JSON.parse(localStorage.getItem("admin"));
+            luuLocal.splice(xoa, 1);
+            localStorage.setItem("admin", JSON.stringify(luuLocal));
+            renderList();
+        }
+    </script> -->
+
+  <div>
+    <label for="">Thêm sản phẩm</label><br> <br>
+    <input type="file" onchange="imgProduct(this)"> <br> <br>
+    <label for="">ID</label><br>
+    <input id="id" type="number"><br> <br>
+    <label for="" >Số Lượng</label><br>
+    <input id="soluong" type="number"><br> <br>
+    <img id="productImage" src="" alt="Product image" style="width: 50px;"><br> <br>
+    <label for="">Product name</label> <br>
+    <input id="name" type="text"> <br> <br>
+    <label for="price">Price</label> <br>
+    <input id="price" type="text"> <br> <br>
+    <button id="update" onclick="addProduct()">Add</button> <br> <br>
+  </div>
+  <table id="table" border="1px" style="text-align: center;border: none;"></table>
+
+<script src="../js/admin.js"></script>
+
+</body>
+
+</html>
